@@ -13,11 +13,11 @@ namespace AspNetCoreMVC.Controllers
 
         private IServico _IServico;
 
-        public  HomeController()
+        public  HomeController(IServico servico)
         {
-            // Problema de acoplamento
-            // Responsabilidade demais para o controller, e controller tem informação desnecessária
-            _IServico = new Servico("https://leandroekamoto.wordpress.com/curriculum/");
+            // Resolvendo problema, com injeção de dependência
+            // O controller só conhece a interface e nem sabe do parâmetro passado no construtor
+            _IServico = servico;
         }
 
         public IActionResult Index()
