@@ -10,8 +10,20 @@ namespace AspNetCoreMVC.Controllers
 {
     public class HomeController : Controller
     {
+
+        private IServico _IServico;
+
+        public  HomeController()
+        {
+            // Problema de acoplamento
+            // Responsabilidade demais para o controller, e controller tem informação desnecessária
+            _IServico = new Servico("https://leandroekamoto.wordpress.com/curriculum/");
+        }
+
         public IActionResult Index()
         {
+            ViewData["URI"] = _IServico.buscarURI();
+
             return View();
         }
 
