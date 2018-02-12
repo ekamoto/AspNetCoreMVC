@@ -41,6 +41,7 @@ namespace AspNetCoreMVC
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseBrowserLink();
             }
             else
             {

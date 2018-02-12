@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using AspNetCoreMVC.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace AspNetCoreMVC.Controllers
 {
@@ -12,17 +13,21 @@ namespace AspNetCoreMVC.Controllers
     {
 
         private IServico _IServico;
+        private IConfiguration _IConfiguration;
 
-        public  HomeController(IServico servico)
+        public  HomeController(IServico servico, IConfiguration configuration)
         {
             // Resolvendo problema, com injeção de dependência
             // O controller só conhece a interface e nem sabe do parâmetro passado no construtor
             _IServico = servico;
+            _IConfiguration = configuration;
         }
 
         public IActionResult Index()
         {
             ViewData["URI"] = _IServico.buscarURI();
+            ViewData["Environment"] = _IConfiguration.GetValue<string>("Environment");
+            ViewData["Name"] = _IConfiguration.GetValue<string>("Name");
 
             return View();
         }
