@@ -53,7 +53,7 @@ namespace AspNetCoreMVC.Controllers
 
         public IActionResult People()
         {
-            var people = new People {Email="ekamoto.leandro@gmail.com", Name="Leandro Shindi Ekamoto"};
+            var people = new People {Email="ekamoto.leandro@gmail.com", Name="Leandro Shindi Ekamoto teste..."};
 
             return View(people);
         }
