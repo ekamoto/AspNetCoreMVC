@@ -54,7 +54,8 @@ namespace AspNetCoreMVC
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}")
+                    .MapRoute(name: "route-about", template:"about", defaults: new {controller="Home",action="About"});
             });
         }
     }
