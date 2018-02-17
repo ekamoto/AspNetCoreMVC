@@ -50,5 +50,12 @@ namespace AspNetCoreMVC.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        public IActionResult People()
+        {
+            var people = new People {Email="ekamoto.leandro@gmail.com", Name="Leandro Shindi Ekamoto"};
+
+            return View(people);
+        }
     }
 }
