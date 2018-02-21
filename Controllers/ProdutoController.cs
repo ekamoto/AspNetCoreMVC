@@ -13,6 +13,7 @@ namespace AspNetCoreMVC.Controllers
             return View();
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public IActionResult FormSave(Produto produto)
         {
