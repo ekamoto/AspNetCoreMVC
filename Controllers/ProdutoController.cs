@@ -14,7 +14,7 @@ namespace AspNetCoreMVC.Controllers
         }
 
         [HttpPost]
-        public IActionResult Save(Produto produto)
+        public IActionResult FormSave(Produto produto)
         {
             if(!ModelState.IsValid)
             {
