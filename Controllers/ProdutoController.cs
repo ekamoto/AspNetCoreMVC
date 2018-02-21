@@ -1,33 +1,27 @@
+using AspNetCoreMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetCoreMVC.Controllers
 {
 
-    [Route("api/product")]
     public class ProdutoController: Controller
     {
-        // :int é uma constraint limitando para receber somente int, tem muito mais opções na documentação
-        [HttpGet("{id:int}")]
-        public int Get(int id)
+        [HttpGet]
+        public IActionResult FormSave()
         {
-            return id;
+
+            return View();
         }
 
-        // public string Get()
-        // {
-        //     HttpContext.Response.Headers.Add("Nome", "ShindiSan");
-        //     HttpContext.Response.StatusCode = 404;
-        //     return "";
-        // }
-
-        // public IActionResult Get()
-        // {
-        //     return Content("leandro","application/pdf");
-        // }
-        
-        public IActionResult Get()
+        [HttpPost]
+        public IActionResult Save(Produto produto)
         {
-            return File("images/banner1.svg","image/svg+xml");
+            if(produto.Id == 0 || string.IsNullOrEmpty(produto.Name) || produto.Price == 0)
+            {
+                ViewBag.MensagemErro = "Dados inválidos";
+            }
+
+            return View(produto);
         }
     }
 }
