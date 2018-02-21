@@ -16,7 +16,7 @@ namespace AspNetCoreMVC.Controllers
         [HttpPost]
         public IActionResult Save(Produto produto)
         {
-            if(produto.Id == 0 || string.IsNullOrEmpty(produto.Name) || produto.Price == 0)
+            if(!ModelState.IsValid)
             {
                 ViewBag.MensagemErro = "Dados inválidos";
             }
