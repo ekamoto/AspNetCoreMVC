@@ -1,0 +1,22 @@
+@model AspNetCoreMVC.Models.Produto
+
+<p>
+    <form asp-controller="Produto" asp-action="FormSave" method="post">
+        ID:<input asp-for="Id" maxlength="9"/>
+        <span asp-validation-for="Id"></span><br>
+
+        Name:<input asp-for="Name"/>
+        <span asp-validation-for="Name"></span><br>
+
+        Price:<input asp-for="Price"/>
+        <span asp-validation-for="Price"></span><br>
+
+        <input type="submit" value="Salvar">
+        
+    </form>
+</p>
+
+@if(ViewBag.MensagemErro != null) {
+
+    <span style="color:red; font-weight: bold">@ViewBag.MensagemErro</span>
+}

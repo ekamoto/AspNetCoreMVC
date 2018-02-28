@@ -1,0 +1,18 @@
+@model AspNetCoreMVC.Models.Produto
+
+<h1>Produto Salvo Com Sucesso</h1>
+
+<p>
+    <strong>Id:</strong> @Model.Id
+</p>
+<p>
+    <strong>Name:</strong> @Model.Name
+</p>
+<p>
+    <strong>Price:</strong> @Model.Price
+</p>
+
+@if(ViewBag.MensagemErro != null) {
+
+    <span style="color:red; font-weight: bold">@ViewBag.MensagemErro</span>
+}
