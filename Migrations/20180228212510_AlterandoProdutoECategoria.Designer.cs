@@ -11,9 +11,10 @@ using System;
 namespace AspNetCoreMVC.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180228212510_AlterandoProdutoECategoria")]
+    partial class AlterandoProdutoECategoria
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,7 +27,6 @@ namespace AspNetCoreMVC.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(100);
 
                     b.HasKey("Id");
@@ -42,7 +42,6 @@ namespace AspNetCoreMVC.Migrations
                     b.Property<int?>("CategoryId");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasMaxLength(100);
 
                     b.Property<decimal>("Value");
